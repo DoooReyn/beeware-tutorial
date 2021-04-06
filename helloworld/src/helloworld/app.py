@@ -16,7 +16,9 @@ class HelloWorld(toga.App):
         We then create a main window (with a name matching the app), and
         show the main window.
         """
-        main_box = toga.Box()
+        main_box = toga.Box(style=Pack(direction=COLUMN))
+
+        name_label = toga.Label("Your name:", style=Pack(padding=(0,5)))
 
         self.main_window = toga.MainWindow(title=self.formal_name)
         self.main_window.content = main_box
