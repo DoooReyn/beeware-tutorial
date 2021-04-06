@@ -1,0 +1,49 @@
+[tool.briefcase]
+project_name = "BMFont Toolbox"
+bundle = "cn.wu57"
+version = "0.0.1"
+url = "https://wu57.cn/bmfonttoolbox"
+license = "MIT license"
+author = 'Dooo Reyn'
+author_email = "jl88744653@gmail.com"
+
+[tool.briefcase.app.bmfonttoolbox]
+formal_name = "BMFont Toolbox"
+description = "BMFont Toolbox"
+icon = "src/bmfonttoolbox/resources/bmfonttoolbox"
+sources = ['src/bmfonttoolbox']
+requires = []
+
+
+[tool.briefcase.app.bmfonttoolbox.macOS]
+requires = [
+    'toga-cocoa>=0.3.0.dev20',
+]
+
+[tool.briefcase.app.bmfonttoolbox.linux]
+requires = [
+    'toga-gtk>=0.3.0.dev20',
+]
+system_requires = [
+    'libgirepository1.0-dev',
+    'libcairo2-dev',
+    'libpango1.0-dev',
+    'libwebkitgtk-3.0-0',
+    'gir1.2-webkit-3.0',
+]
+
+[tool.briefcase.app.bmfonttoolbox.windows]
+requires = [
+    'toga-winforms>=0.3.0.dev20',
+]
+
+# Mobile deployments
+[tool.briefcase.app.bmfonttoolbox.iOS]
+requires = [
+    'toga-iOS>=0.3.0.dev20',
+]
+
+[tool.briefcase.app.bmfonttoolbox.android]
+requires = [
+    'toga-android>=0.3.0.dev20',
+]
