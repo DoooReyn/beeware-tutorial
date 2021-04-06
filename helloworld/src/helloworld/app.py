@@ -36,7 +36,14 @@ class HelloWorld(toga.App):
         self.main_window.show()
 
     def say_hello(self, widget):
-        print("Hello " + self.name_input.value)
+        if self.name_input.value:
+            name = self.name_input.value
+        else:
+            name = "stranger"
+        self.main_window.info_dialog(
+            "Hi there!",
+            "Hello, {}.".format(name)
+        )
 
 
 def main():
