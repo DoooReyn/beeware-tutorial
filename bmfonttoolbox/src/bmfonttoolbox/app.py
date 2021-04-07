@@ -35,6 +35,18 @@ class BMFontToolbox(toga.App):
         self.main_box = toga.Box(style=Pack(direction=COLUMN))
         self.create_original_box()
         self.create_output_box()
+        self.create_list_box()
+        self.create_picture_list_box()
+        self.create_output_list_box()
+
+    def create_list_box(self):
+        pass
+
+    def create_picture_list_box(self):
+        pass
+
+    def create_output_list_box(self):
+        pass
 
     def create_original_box(self):
         label = toga.Label(
@@ -109,6 +121,7 @@ class BMFontToolbox(toga.App):
                 self.output_textfield.value = folder[0]
         except ValueError:
             pass
+
 
 def main():
     return BMFontToolbox()
