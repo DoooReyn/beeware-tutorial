@@ -38,7 +38,7 @@ class BMFontToolbox(toga.App):
 
     def create_original_box(self):
         label = toga.Label(
-            "Choose picture folder",
+            "选择图集目录",
             style=Pack(padding=(4, 4, 0, 4))
         )
 
@@ -49,7 +49,7 @@ class BMFontToolbox(toga.App):
         )
 
         self.original_button = toga.Button(
-            "Choose",
+            "打开",
             style=Pack(padding=(4, 4, 4, 0)),
             on_press=self.on_select_texture_dir
         )
@@ -62,7 +62,7 @@ class BMFontToolbox(toga.App):
 
     def create_output_box(self):
         label = toga.Label(
-            "Choose output folder",
+            "选择输出目录",
             style=Pack(padding=(4, 4, 0, 4))
         )
 
@@ -73,9 +73,9 @@ class BMFontToolbox(toga.App):
         )
 
         self.output_button = toga.Button(
-            "Choose",
+            "打开",
             style=Pack(padding=(4, 4, 4, 0)),
-            on_press=self.on_select_texture_dir
+            on_press=self.on_select_output_dir
         )
 
         box = toga.Box(style=Pack(direction=ROW))
@@ -88,7 +88,7 @@ class BMFontToolbox(toga.App):
         try:
             where = get_default_path()
             folder = self.main_window.select_folder_dialog(
-                title="Choose pictures folder",
+                title="选择图集目录",
                 initial_directory=where,
                 multiselect=False
             )
@@ -97,6 +97,18 @@ class BMFontToolbox(toga.App):
         except ValueError:
             pass
 
+    def on_select_output_dir(self, widget):
+        try:
+            where = get_output_path()
+            folder = self.main_window.select_folder_dialog(
+                title="选择输出目录",
+                initial_directory=where,
+                multiselect=False
+            )
+            if folder and len(folder) > 0:
+                self.output_textfield.value = folder[0]
+        except ValueError:
+            pass
 
 def main():
     return BMFontToolbox()
